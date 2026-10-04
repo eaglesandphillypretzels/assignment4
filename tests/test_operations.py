@@ -112,7 +112,8 @@ def test_multiplication(a: Number, b: Number, expected_result: Number) -> None:
         (-10, -5, 2),             # Test with two negative integers
         (10, -5, -2),             # Test with one positive and one negative integer
         (0.0, 5.0, 0.0),          # Test with zero and a positive float
-        (10.0, -5.0, -2.0),      # Test with one positive and one negative float
+        (10.0, -5.0, -2.0),       # Test with one positive and one negative float
+        (10.0, 0.0, None),        # Test division by zero (should raise an exception)
     ],
     ids=[
         "divide_two_positive_integers",
@@ -120,6 +121,7 @@ def test_multiplication(a: Number, b: Number, expected_result: Number) -> None:
         "divide_positive_and_negative_integers",
         "divide_zero_and_positive_float",
         "divide_positive_and_negative_float",
+        "divide_by_zero"
     ]
 )
 def test_division(a: Number, b: Number, expected_result: Number) -> None:
