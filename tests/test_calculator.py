@@ -92,7 +92,7 @@ def test_display_history_with_entries(capsys):
     ]
 
     # Act
-    display_history(history)
+    display_history(history)  # type: ignore
 
     # Assert
     captured = capsys.readouterr()
