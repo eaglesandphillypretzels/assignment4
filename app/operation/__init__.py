@@ -132,4 +132,25 @@ class Operation:
             raise ValueError("Division by zero is not allowed.")  # Raises an error if division by zero is attempted.
         return a / b  # Divides `a` by `b` and returns the quotient.
 
+@staticmethod
+def power(a: float, b: float) -> float:
+    """
+    Raises the first floating-point number to the power of the second and returns the result.
+
+    **Parameters:**
+    - `a (float)`: The base number.
+    - `b (float)`: The exponent.
     
+    **Returns:**
+    - `float`: The result of `a` raised to the power of `b`.
+
+    **Example:**
+    >>> Operation.power(2.0, 3.0)
+    8.0
+
+    **Design Choice: Why Include a Power Function?**
+    - Including a power function in the Operation class provides a complete set of 
+      basic arithmetic operations, making it more versatile for users who may need 
+      exponentiation in their calculations.
+    """
+    return a ** b  # Raises `a` to the power of `b` and returns the result.     
