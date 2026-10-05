@@ -135,3 +135,37 @@ def test_division(a: Number, b: Number, expected_result: Number) -> None:
 
     # Assert: The result should match the expected result
     assert result == expected_result, f"Expected {a} / {b} to be {expected_result}, got {result}"
+
+# -----------------------------------------------------------------------------------
+# Unit Tests for the 'power' method in the Operation class
+# -----------------------------------------------------------------------------------
+@pytest.mark.parametrize(
+    "a, b, expected_result",
+    [
+        (2.0, 3.0, 8.0),               # Test with two positive floats
+        (-2.0, 3.0, -8.0),             # Test with a negative base and positive exponent
+        (2.0, -3.0, 0.125),            # Test with a positive base and negative exponent
+        (5.0, 0.0, 1.0),               # Test with positive base and zero exponent
+        (0.0, 0.0, 1.0),               # Test with zero base and zero exponent (by convention, 0^0 is often defined as 1)
+        (5, 2, 25),                    # Test with two positive integers  
+    ],
+    ids=[
+        "power_two_positive_floats",
+        "power_negative_base_positive_exponent",
+        "power_positive_base_negative_exponent",
+        "power_zero_base_positive_exponent",
+        "power_positive_base_zero_exponent",
+        "power_two_positive_integers"
+    ]
+)
+def test_power(a: Number, b: Number, expected_result: Number) -> None:
+    """
+    Test the power method with various combinations of numbers.
+    
+    This test verifies that raising a number to a power returns the correct result for different scenarios.
+    """
+    # Act: Call the power method from the Operation class
+    result = Operation.power(a, b)
+
+    # Assert: The result should match the expected result
+    assert result == expected_result, f"Expected {a} ** {b} to be {expected_result}, got {result}"
