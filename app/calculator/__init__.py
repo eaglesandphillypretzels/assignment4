@@ -33,6 +33,8 @@ Usage:
         subtract  : Subtracts the second number from the first.
         multiply  : Multiplies two numbers.
         divide    : Divides the first number by the second.
+        power     : Raises the first number to the power of the second.
+        modulus   : Computes the modulus of the first number by the second.
 
 Special Commands:
     help      : Display this help message.
@@ -45,6 +47,7 @@ Examples:
     multiply 7 8
     divide 20 4
     power 6 2
+    modulus 10 3
     """
     print(help_message)
 

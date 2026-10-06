@@ -169,3 +169,37 @@ def test_power(a: Number, b: Number, expected_result: Number) -> None:
 
     # Assert: The result should match the expected result
     assert result == expected_result, f"Expected {a} ** {b} to be {expected_result}, got {result}"
+
+# -----------------------------------------------------------------------------------
+# Unit Tests for the 'modulus' method in the Operation class
+# -----------------------------------------------------------------------------------
+@pytest.mark.parametrize(
+    "a, b, expected_result",
+    [
+        (10, 3, 1),               # Test with two positive integers
+        (-10, 3, 2),              # Test with a negative integer and a positive integer
+        (10, -3, -2),             # Test with a positive integer and a negative integer
+        (-10, -3, -1),            # Test with two negative integers
+        (10.5, 3.2, 0.9),         # Test with two positive floats
+        (10.5, 0.0, None),        # Test modulus by zero (should raise an exception)
+    ],
+    ids=[
+        "modulus_two_positive_integers",
+        "modulus_negative_integer_positive_integer",
+        "modulus_positive_integer_negative_integer",
+        "modulus_two_negative_integers",
+        "modulus_two_positive_floats",
+        "modulus_by_zero"
+    ]
+)
+def test_modulus(a: Number, b: Number, expected_result: Number) -> None:
+    """
+    Test the modulus method with various combinations of numbers.
+    
+    This test verifies that the modulus operation returns the correct remainder for different scenarios.
+    """
+    # Act: Call the modulus method from the Operation class
+    result = Operation.modulus(a, b)
+
+    # Assert: The result should match the approximate result
+    assert result == pytest.approx(expected_result), f"Expected {a} % {b} to be {expected_result}, got {result}"

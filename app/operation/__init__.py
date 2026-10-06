@@ -3,8 +3,8 @@
 class Operation:
     """
     The Operation class encapsulates basic arithmetic operations as static methods.
-    This design groups related functions (addition, subtraction, multiplication, and division) 
-    in a single class, making the code more modular and organized.
+    This design groups related functions (addition, subtraction, multiplication, division, exponentiation, and modulus) 
+    together in a single class, making the code more modular and organized.
 
     **Object-Oriented Programming (OOP) Principles Illustrated:**
     - **Encapsulation:** This class groups all arithmetic operations together, making it easier 
@@ -154,3 +154,30 @@ class Operation:
           which is a common mathematical operation in many applications.
         """
         return a ** b  # Raises `a` to the power of `b` and returns the result. 
+    
+    @staticmethod
+    def modulus(a: float, b: float) -> float:
+        """
+        Returns the remainder of the division of the first floating-point number by the second.
+
+        **Parameters:**
+        - `a (float)`: The dividend.
+        - `b (float)`: The divisor.
+
+        **Returns:**
+        - `float`: The remainder of `a` divided by `b`.
+
+        **Raises:**
+        - `ValueError`: If the divisor `b` is zero, as modulus by zero is undefined.
+
+        **Example:**
+        >>> Operation.modulus(10.0, 3.0)
+        1.0
+        >>> Operation.modulus(10.0, 0.0)
+        Traceback (most recent call last):
+            ...
+        ValueError: Modulus by zero is not allowed.
+        """
+        if b == 0:
+            raise ValueError("Modulus by zero is not allowed.")
+        return a % b  # Returns the remainder of `a` divided by `b`.
